@@ -1,0 +1,2 @@
+I have 2 cats and I recently bought a used Litter Robot 3 automated litter box.  I placed it next to the current litter box and setup a Blink camera with motion detection so I could see if both cats were using the new litter box.  
+I wanted to create a home assistant automation using the Blink integration and the Litter Robot automation.  When the state of the litter robot indicates that a cat is present I want to snap a picture from the blink camera and send it as a notification to the home assistant app on my iPhone.

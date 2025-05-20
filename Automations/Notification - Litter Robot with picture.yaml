@@ -1,0 +1,25 @@
+alias: Notification - Litter Robot with picture
+description: ""
+triggers:
+  - trigger: state
+    entity_id:
+      - sensor.condo_status_code
+    to: cd
+conditions: []
+actions:
+  - action: camera.snapshot
+    metadata: {}
+    data:
+      filename: >-
+        /config/www/litter_box_{{now().day}}_{{now().month}}_{{now().year}}_{{now().hour}}.jpg
+    target:
+      device_id: 57c4fc6900a71d172e5cc7e15ffe03fe
+  - action: notify.mobile_app_matts_iphone_14
+    metadata: {}
+    data:
+      title: Litter Robot Status Changed
+      message: "{{states('sensor.litter_robot_status_text')}}"
+      data:
+        url: >-
+          https://{home_assistant_cloud_url}/local/litter_box_{{now().day}}_{{now().month}}_{{now().year}}_{{now().hour}}.jpg
+mode: single
